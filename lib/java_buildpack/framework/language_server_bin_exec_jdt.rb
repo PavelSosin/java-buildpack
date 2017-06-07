@@ -35,14 +35,16 @@ module JavaBuildpack
         FileUtils.mkdir_p @droplet.root + 'di_ws_root'
         FileUtils.mkdir_p @droplet.root + 'jdt_ws_root'
 
-        puts @configuration["env"]["IPC"]
+
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
 
         environment_variables = @droplet.environment_variables
-        environment_variables.add_environment_variable(IPC, '{JDT-IPC}')
+        myIpc = @configuration["env"]["IPC"]
+        puts myIpc
+        environment_variables.add_environment_variable(IPC, myIpc)
 
 #        credentials = @application.services.find_service(FILTER)['credentials']
 #        java_opts   = @droplet.java_opts
