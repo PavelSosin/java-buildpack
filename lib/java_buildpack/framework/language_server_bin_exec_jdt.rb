@@ -40,6 +40,10 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
+
+        environment_variables = @droplet.environment_variables
+        environment_variables.add_environment_variable(IPD, @configuration["env"])
+
 #        credentials = @application.services.find_service(FILTER)['credentials']
 #        java_opts   = @droplet.java_opts
 #        configuration = {}
@@ -65,6 +69,8 @@ module JavaBuildpack
       BINEXEC = 'exec'.freeze
 
       private_constant :BINEXEC
+
+      IPC = 'jdt-ipd'.freeze
 
 
     end
