@@ -35,6 +35,7 @@ module JavaBuildpack
         FileUtils.mkdir_p @droplet.root + 'di_ws_root'
         FileUtils.mkdir_p @droplet.root + 'jdt_ws_root'
 
+        puts @configuration["env"]
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
