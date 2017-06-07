@@ -42,7 +42,7 @@ module JavaBuildpack
       def release
 
         environment_variables = @droplet.environment_variables
-        environment_variables.add_environment_variable(IPD, @configuration["env"])
+        environment_variables.add_environment_variable(IPC, @configuration["env"])
 
 #        credentials = @application.services.find_service(FILTER)['credentials']
 #        java_opts   = @droplet.java_opts
