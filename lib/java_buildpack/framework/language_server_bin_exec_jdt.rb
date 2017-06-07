@@ -42,7 +42,7 @@ module JavaBuildpack
       def release
 
         environment_variables = @droplet.environment_variables
-        environment_variables.add_environment_variable(IPC, 'JDT-IPC')
+        environment_variables.add_environment_variable(IPC, '{JDT-IPC}')
 
 #        credentials = @application.services.find_service(FILTER)['credentials']
 #        java_opts   = @droplet.java_opts
@@ -70,7 +70,7 @@ module JavaBuildpack
 
       private_constant :BINEXEC
 
-      IPC = 'jdt-ipd'.freeze
+      IPC = 'jdt-ipc'.freeze
 
 
     end
