@@ -22,7 +22,7 @@ require 'java_buildpack/util/qualify_path'
 module JavaBuildpack
   module Framework
 
-    # Encapsulates the functionality for enabling zero-touch New Relic support.
+    # Installs JDT based LSP server component.
     class LanguageServerBinExecJDT < JavaBuildpack::Component::VersionedDependencyComponent
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
@@ -43,19 +43,10 @@ module JavaBuildpack
 
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["env"]["IPC"]
-        environment_variables.add_environment_variable(IPC, myIpc)
+        puts "IPC" + myIpc
+        environment_variables.add_environment_variable(:IPC, myIpc)
 
-#        credentials = @application.services.find_service(FILTER)['credentials']
-#        java_opts   = @droplet.java_opts
-#        configuration = {}
 
-#       apply_configuration(credentials, configuration)
-#       apply_user_configuration(credentials, configuration)
-#       write_java_opts(java_opts, configuration)
-
-#       java_opts.add_javaagent(@droplet.sandbox + jar_name)
-#                .add_system_property('newrelic.home', @droplet.sandbox)
-#       java_opts.add_system_property('newrelic.enable.java.8', 'true') if @droplet.java_home.java_8_or_later?
       end
 
       protected
@@ -72,6 +63,8 @@ module JavaBuildpack
       private_constant :BINEXEC
 
       IPC = 'jdt-ipc'.freeze
+
+      private_constant :IPC
 
 
     end
