@@ -17,6 +17,8 @@
 ---
 version: 0.1.+
 repository_root: "https://buildpackcomponentrepository.cfapps.sap.hana.ondemand.com"
+workdir: "language_server_bin_exec_jdt/"
+IPC: "{ 'socket' : {'in' : 8991, 'out' : 8990 } }"
 env:
     basedir: /home/vcap/app/.java-buildpack/
     workdir: language_server_bin_exec_jdt/
