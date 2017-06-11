@@ -43,8 +43,10 @@ module JavaBuildpack
 
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["env"]["IPC"]
+        myExec = @configuration["env"]["exec"]
         # puts "IPC " + myIpc
         environment_variables.add_environment_variable "IPC", myIpc
+        environment_variables.add_environment_variable "exec", myExec
 
 
       end
