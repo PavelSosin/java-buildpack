@@ -26,6 +26,15 @@ module JavaBuildpack
     # Installs JDT based LSP server component.
     class LanguageServerBinExecJDT < JavaBuildpack::Component::VersionedDependencyComponent
 
+      # Creates an instance
+      #
+      # @param [Hash] context a collection of utilities used the component
+      def initialize(context)
+        super(context)
+        @logger = JavaBuildpack::Logging::LoggerFactory.instance.get_logger LanguageServerBinExecJDT
+      end
+
+
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         download_tar
