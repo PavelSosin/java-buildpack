@@ -43,7 +43,7 @@ module JavaBuildpack
 
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["env"]["IPC"]
-        puts "IPC" + myIpc
+        # puts "IPC " + myIpc
         environment_variables.add_environment_variable(:IPC, myIpc)
 
 
