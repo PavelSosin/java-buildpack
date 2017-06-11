@@ -48,7 +48,7 @@ module JavaBuildpack
         # puts "IPC " + myIpc
         environment_variables.add_environment_variable "IPC", myIpc
         environment_variables.add_environment_variable "workdir", myWorkDir
-        @Logger.debug { "Env vars:#{environment_variables}" }
+        @logger.debug { "Env vars:#{environment_variables}" }
 
 
       end
