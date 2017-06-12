@@ -66,7 +66,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @logger.debug { "CDX env vars:#{@application.environment}" }
+        puts @application.environment
         @application.environment.key?(LSPSERVERS) 
         # && @application.environment[:LSPSERVERS].split(',').include?("java")
       end
