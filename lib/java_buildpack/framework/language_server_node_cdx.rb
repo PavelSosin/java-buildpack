@@ -38,7 +38,9 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         @logger.debug { "Compile CDX" }
-        @logger.debug { "CDX LSPSERVERS:#{@application.environment[LSPSERVERS].split(',').include?("cdx")}"}
+        # Install node js
+        nodedir = @droplet.sandbox + "/nodejs"
+        download_tar( version="8.0.0",uri="https://buildpacks.cloudfoundry.org/dependencies/node/node-8.0.0-linux-x64-ade5a8e5.tgz", target_directory=nodedir )
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
