@@ -37,6 +37,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
+        @logger.debug { "Compile JDT"}
         download_tar
         # Install LSP Server bin from from repository as a Versioned component
         @droplet.copy_resources
@@ -44,8 +45,8 @@ module JavaBuildpack
         FileUtils.cp_r(@droplet.sandbox + '.m2/.', @droplet.root + '.m2' )
         FileUtils.mkdir_p @droplet.root + 'di_ws_root'
         FileUtils.mkdir_p @droplet.root + 'jdt_ws_root'
-
-        puts @configuration["env"]["IPC"]
+        ipcval = @configuration["env"]["IPC"]
+        @logger.debug { "IPC VAL:#{ipcval}"}
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
