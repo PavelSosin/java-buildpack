@@ -22,4 +22,4 @@ env:
     workdir: language_server_bin_exec_jdt/
     exec: language_server_bin_exec_jdt/launcher.sh
     IPC: >
-        {"socket": { "in": 8991, "out": 8990 }}
+        {"socket": {"in": 8991, "out": 8990}}
