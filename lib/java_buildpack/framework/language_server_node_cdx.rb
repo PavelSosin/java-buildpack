@@ -40,7 +40,7 @@ module JavaBuildpack
         @logger.debug { "Compile CDX" }
         # Install node js
         nodedir = @droplet.sandbox + "/nodejs"
-        @version="8.0.0",
+        @version="8.0.0"
         @uri="https://buildpacks.cloudfoundry.org/dependencies/node/node-8.0.0-linux-x64-ade5a8e5.tgz"
         download_tar( target_directory=nodedir )
       end
