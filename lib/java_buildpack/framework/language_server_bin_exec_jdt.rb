@@ -66,7 +66,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @application.environment.key?(LSPSERVERS) && @application.environment[:LSPSERVERS].split(',').include? 'java'
+        @application.environment.key?(LSPSERVERS) && @application.environment[:LSPSERVERS].split(',').include?("java")
       end
 
       private
