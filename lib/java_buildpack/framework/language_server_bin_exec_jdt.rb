@@ -59,7 +59,7 @@ module JavaBuildpack
         environment_variables.add_environment_variable "IPC", myIpc
         environment_variables.add_environment_variable "workdir", myWorkDir
         @logger.debug { "Env vars:#{environment_variables}" }
-
+        @logger.debug { "LSPSERVERS:#{@application.environment}"}
 
       end
 
@@ -67,8 +67,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @logger.debug { "LSPSERVERS:#{@application.environment[LSPSERVERS]}"}
-        @application.environment.key?(LSPSERVERS) && @application.environment[LSPSERVERS].split(',').include?("java")
+        @application.environment.key?(LSPSERVERS) # && @application.environment[LSPSERVERS].split(',').include?("java")
       end
 
       private
