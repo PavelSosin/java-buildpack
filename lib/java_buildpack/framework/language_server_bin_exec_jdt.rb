@@ -55,8 +55,8 @@ module JavaBuildpack
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["IPC"]
         myWorkDir = @configuration["workdir"]
-        environment_variables.add_environment_variable ("IPC", "\"#{myIpc}\"")
-        environment_variables.add_environment_variable ("workdir", myWorkDir)
+        environment_variables.add_environment_variable(IPC, "\"#{myIpc}\"")
+        #environment_variables.add_environment_variable "workdir" myWorkDir
         @logger.debug { "JDT Env vars:#{environment_variables}" }
         
       end
@@ -78,9 +78,7 @@ module JavaBuildpack
 
       private_constant :IPC
 
-      BINEXEC = 'exec'.freeze
-
-      private_constant :BINEXEC
+      
 
     end
 
