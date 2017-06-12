@@ -51,7 +51,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @application.environment.key?(LSPSERVERS)
+        @application.environment.key?(BINEXEC)
         # &&  @application.environment[:LSPSERVERS].split(',').include?("cdx")
       end
 
@@ -60,6 +60,10 @@ module JavaBuildpack
       LSPSERVERS = 'lsp-servers'.freeze
 
       private_constant :LSPSERVERS
+
+      BINEXEC = 'exec'.freeze
+
+      private_constant :BINEXEC
 
       
     end
