@@ -53,10 +53,10 @@ module JavaBuildpack
       def release
 
         environment_variables = @droplet.environment_variables
-        myIpc = @configuration["IPC"]
-        myWorkDir = @configuration["workdir"]
+        myIpc = @configuration["env"]["IPC"]
+        myWorkDir = @configuration["env"]["workdir"]
         environment_variables.add_environment_variable(IPC, "\"#{myIpc}\"")
-        #environment_variables.add_environment_variable "workdir" myWorkDir
+        environment_variables.add_environment_variable("workdir", myWorkDir)
         @logger.debug { "JDT Env vars:#{environment_variables}" }
         
       end
