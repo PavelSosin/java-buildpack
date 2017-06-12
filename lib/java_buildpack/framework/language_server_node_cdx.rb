@@ -51,8 +51,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @application.environment.key?(LSPSERVERS)
-        # &&  @application.environment[:LSPSERVERS].split(',').include?("cdx")
+        @application.environment.key?(LSPSERVERS) &&  @application.environment[:LSPSERVERS].split(',').include?("cdx")
       end
 
       private
