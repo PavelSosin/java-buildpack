@@ -55,12 +55,10 @@ module JavaBuildpack
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["IPC"]
         myWorkDir = @configuration["workdir"]
-        # puts "IPC " + myIpc
-        environment_variables.add_environment_variable "IPC", myIpc
-        environment_variables.add_environment_variable "workdir", myWorkDir
-        @logger.debug { "Env vars:#{environment_variables}" }
-        @logger.debug { "LSPSERVERS:#{@application.environment}"}
-
+        environment_variables.add_environment_variable ("IPC", "\"#{myIpc}\"")
+        environment_variables.add_environment_variable ("workdir", myWorkDir)
+        @logger.debug { "JDT Env vars:#{environment_variables}" }
+        
       end
 
       protected
