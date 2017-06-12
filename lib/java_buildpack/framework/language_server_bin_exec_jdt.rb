@@ -66,7 +66,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::VersionedDependencyComponent#supports?)
       def supports?
-        @logger.debug { "LSPENV: #{@application.environment[:LSPSERVERS]}" }
+        @logger.debug { "LSPENV: #{@application.environment[LSPSERVERS]}" }
         @application.environment.key?(LSPSERVERS) && @application.environment[:LSPSERVERS].split(',').include?("java")
       end
 
