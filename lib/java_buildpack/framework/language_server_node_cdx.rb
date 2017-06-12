@@ -38,7 +38,7 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
         @logger.debug { "Compile CDX" }
-        @logger.debug { "LSPSERVERS:#{@application.environment}"}
+        @logger.debug { "CDX LSPSERVERS:#{@application.environment[LSPSERVERS]}"}
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
