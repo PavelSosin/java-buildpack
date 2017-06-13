@@ -54,7 +54,7 @@ module JavaBuildpack
         myIpc = @configuration["env"]["ipc"]
         @logger.debug { "CDX Env vars IPC:#{myIpc}" }
         myIpc.each do |key, value|
-          environment_variables.add_environment_variable("CDX-" + key, value)
+          environment_variables.add_environment_variable("CDX" + key, value)
         end
 
       end
