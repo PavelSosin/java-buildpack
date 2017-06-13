@@ -17,3 +17,10 @@
 ---
 version: 0.1.+
 repository_root: "https://buildpackcomponentrepository.cfapps.sap.hana.ondemand.com"
+env:
+    basedir: /home/vcap/app/.java-buildpack/
+    workdir: language_server_bin_exec_jdt/
+    exec: language_server_bin_exec_jdt/launcher.sh
+    ipc:
+        protocol: "socket-client"
+        clientport: 8995

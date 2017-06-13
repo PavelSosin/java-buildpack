@@ -57,7 +57,7 @@ module JavaBuildpack
         #myWorkDir = @configuration["env"]["workdir"]
         #environment_variables.add_environment_variable(IPC, "\"#{myIpc}\"")
         #environment_variables.add_environment_variable("workdir", myWorkDir)
-        @logger.debug { "JDT Env vars:#{myIpc}" }
+        @logger.debug { "JDT Env vars IPC:#{myIpc}" }
         
       end
 
