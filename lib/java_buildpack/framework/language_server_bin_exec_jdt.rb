@@ -54,16 +54,16 @@ module JavaBuildpack
 
         environment_variables = @droplet.environment_variables
         myBasedir = @configuration["env"]["basedir"]
-        environment_variables.add_environment_variable("JDT-" + key, myBasedir)        
+        environment_variables.add_environment_variable("JAVA-" + key, myBasedir)        
         myWorkdir = @configuration["env"]["workdir"]
-        environment_variables.add_environment_variable("JDT-" + key, myWorkdir)
+        environment_variables.add_environment_variable("JAVA-" + key, myWorkdir)
         myExec = @configuration["env"]["exec"]
-        environment_variables.add_environment_variable("JDT-" + key, myExec)
+        environment_variables.add_environment_variable("JAVA-" + key, myExec)
         
         myIpc = @configuration["env"]["ipc"]
         @logger.debug { "JDT Env vars IPC:#{myIpc}" }
         myIpc.each do |key, value|
-          environment_variables.add_environment_variable("JDT-" + key, value)
+          environment_variables.add_environment_variable("JAVA-" + key, value)
         end
         
       end
