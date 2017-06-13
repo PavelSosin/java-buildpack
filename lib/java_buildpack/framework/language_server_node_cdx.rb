@@ -52,10 +52,10 @@ module JavaBuildpack
         @logger.debug { "Release CDX" }
         environment_variables = @droplet.environment_variables
         myIpc = @configuration["env"]["ipc"]
-        #myWorkDir = @configuration["env"]["workdir"]
-        #environment_variables.add_environment_variable(IPC, "\"#{myIpc}\"")
-        #environment_variables.add_environment_variable("workdir", myWorkDir)
         @logger.debug { "CDX Env vars IPC:#{myIpc}" }
+        myIpc.each do |key, value|
+          environment_variables.add_environment_variable("CDX-" + key, value)
+        end
 
       end
 
