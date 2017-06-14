@@ -50,7 +50,7 @@ module JavaBuildpack
         #@uri = comp_uri
 
         nodeBin = nodedir + '/bin/*'
-        @logger.debug { "NodeBin:#{nodeBin}"}
+        @logger.debug { "NodeDir:#{nodedir}   NodeBin:#{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
         #FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
