@@ -49,7 +49,7 @@ module JavaBuildpack
         #@version = comp_version
         #@uri = comp_uri
 
-        nodeBin = nodedir + '/bin/*'
+        nodeBin = @droplet.root + '/node/bin/*'
         @logger.debug { "NodeDir:#{nodedir}   NodeBin:#{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
