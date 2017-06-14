@@ -49,8 +49,8 @@ module JavaBuildpack
         #@version = comp_version
         #@uri = comp_uri
 
-        nodeBin = @droplet.root + '/node/bin/*'
-        @logger.debug { "NodeDir:#{nodedir}   NodeBin:#{nodeBin}"}
+        nodeBin = "#{@droplet.root}/node/bin/*"
+        @logger.debug { "NodeRoot: #{@droplet.root}   NodeBin: #{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
         #FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
