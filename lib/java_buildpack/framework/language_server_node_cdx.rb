@@ -32,7 +32,6 @@ module JavaBuildpack
       def initialize(context)
         super(context)
         @logger = JavaBuildpack::Logging::LoggerFactory.instance.get_logger LanguageServerNodeCDX
-        @logger.debug { "JDT CONTEXT: #{context}" }
       end
 
 
@@ -50,8 +49,8 @@ module JavaBuildpack
         #@version = comp_version
         #@uri = comp_uri
 
-        nodeBin = "#{@droplet.root}/node/bin/*"
-        @logger.debug { "NodeRoot: #{@droplet.root}   NodeBin: #{nodeBin}"}
+        nodeBin = "#{@application.root}/node/bin/*"
+        @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
         #FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
