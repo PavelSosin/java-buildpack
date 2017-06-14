@@ -41,9 +41,16 @@ module JavaBuildpack
         # Install node js
         FileUtils.mkdir_p @droplet.root + "nodejs"
         nodedir = @droplet.sandbox + "nodejs"
+        comp_version = @version
+        comp_uri = @uri
         @version="8.0.0"
         @uri="https://buildpacks.cloudfoundry.org/dependencies/node/node-8.0.0-linux-x64-ade5a8e5.tgz"
         download_tar( target_directory=nodedir )
+        @version = comp_version
+        @uri = comp_uri
+        nodeBin = nodedir + "/bin/*"
+        FileUtils.chmod "a=rx", nodeBin
+        FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
@@ -54,7 +61,7 @@ module JavaBuildpack
         myIpc = @configuration["env"]["ipc"]
         @logger.debug { "CDX Env vars IPC:#{myIpc}" }
         myIpc.each do |key, value|
-          environment_variables.add_environment_variable("CDX" + key, value)
+          environment_variables.add_environment_variable("CDX_" + key, value)
         end
 
       end
