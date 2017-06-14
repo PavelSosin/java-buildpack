@@ -48,9 +48,12 @@ module JavaBuildpack
         download_tar( target_directory=nodedir )
         @version = comp_version
         @uri = comp_uri
-        nodeBin = nodedir + "/bin/*"
-        FileUtils.chmod "a=rx", nodeBin
-        FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
+
+        nodeBin = nodedir + '/bin/*'
+        @logger.debug { "NodeBin:#{nodeBin}"}
+
+        #FileUtils.chmod "a=rx", nodeBin
+        #FileUtils.ln_s Dir.glob("nodeBin/*"), nodedir
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
