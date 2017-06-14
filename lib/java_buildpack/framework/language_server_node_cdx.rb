@@ -32,6 +32,7 @@ module JavaBuildpack
       def initialize(context)
         super(context)
         @logger = JavaBuildpack::Logging::LoggerFactory.instance.get_logger LanguageServerNodeCDX
+        @logger.debug { "JDT CONTEXT: #{context}" }
       end
 
 
