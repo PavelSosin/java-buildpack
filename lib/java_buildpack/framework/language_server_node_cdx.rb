@@ -67,7 +67,7 @@ module JavaBuildpack
           environment_variables.add_environment_variable("CDX_" + key, value)
         end
 
-        environment_variables..add_environment_variable 'PATH', "/node/bin:$PATH"
+        environment_variables.add_environment_variable 'PATH', "/node/bin:$PATH"
       end
 
       protected
