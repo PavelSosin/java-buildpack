@@ -53,6 +53,7 @@ module JavaBuildpack
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
+        @logger.debug { "CDX NODEBIN: #{Dir.glob("/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/*")}" }
         FileUtils.ln_s Dir.glob("/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/*"), "/usr/bin/"
       end
 
@@ -66,7 +67,7 @@ module JavaBuildpack
         myIpc.each do |key, value|
           environment_variables.add_environment_variable("CDX_" + key, value)
         end
-
+        @logger.debug { "CDX NODEBIN: #{Dir.glob("/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/*")}" }
       end
 
       protected
