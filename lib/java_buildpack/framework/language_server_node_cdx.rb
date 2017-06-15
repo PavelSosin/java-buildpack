@@ -53,7 +53,7 @@ module JavaBuildpack
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
 
         #FileUtils.chmod "a=rx", nodeBin
-        FileUtils.ln_s "/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/npm", "/usr/bin/npm", force: true
+        #FileUtils.ln_s "/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/npm", "/usr/bin/npm", force: true
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
