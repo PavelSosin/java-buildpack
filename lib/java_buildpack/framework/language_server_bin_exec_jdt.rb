@@ -60,7 +60,7 @@ module JavaBuildpack
         myExec = @configuration["env"]["exec"]
         environment_variables.add_environment_variable("JAVA_" + "exec", myExec)
         portIn = @configuration["env"]["STDIN_PORT"]
-        environment_variables.add_environment_variable("JAVA_STDIN_PORT, portIn)
+        environment_variables.add_environment_variable("JAVA_STDIN_PORT", portIn)
         portOut = @configuration["env"]["STDOUT_PORT"]
         environment_variables.add_environment_variable("JAVA_STDOUT_PORT", portOut)
         
