@@ -15,12 +15,12 @@
 
 # Configuration for the JAVA LSP server component
 ---
-version: 0.1.+
-repository_root: "https://buildpackcomponentrepository.cfapps.sap.hana.ondemand.com"
+version: 0.0.+
+repository_root: "https://buildpackcomponentrepositorycdx.cfapps.sap.hana.ondemand.com"
 env:
     basedir: /home/vcap/app/.java-buildpack/
     workdir: language_server_node_cdx/
     exec: language_server_node_cdx/launcher.sh
     ipc:
         protocol: "socket-client"
-        clientport: 8995
+        clientport: 8765

@@ -46,8 +46,9 @@ module JavaBuildpack
         @version="8.0.0"
         @uri="https://buildpacks.cloudfoundry.org/dependencies/node/node-8.0.0-linux-x64-ade5a8e5.tgz"
         download_tar( target_directory=nodedir )
-        #@version = comp_version
-        #@uri = comp_uri
+        @version = comp_version
+        @uri = comp_uri
+        download_zip
 
         nodeBin = "#{@application.root}/node/bin/*"
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
