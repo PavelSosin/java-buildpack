@@ -18,7 +18,7 @@
 version: 0.0.+
 repository_root: "https://buildpackcomponentrepositorycdx.cfapps.sap.hana.ondemand.com"
 env:
-    basedir: /home/vcap/app/.java-buildpack/
+#    basedir: /home/vcap/app/.java-buildpack/
     workdir: language_server_node_cdx/
     exec: language_server_node_cdx/launcher.sh
     ipc:

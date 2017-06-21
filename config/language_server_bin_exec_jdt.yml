@@ -18,7 +18,7 @@
 version: 0.1.+
 repository_root: "https://buildpackcomponentrepository.cfapps.sap.hana.ondemand.com"
 env:
-    basedir: /home/vcap/app/.java-buildpack/
+#    basedir: /home/vcap/app/.java-buildpack/
     workdir: language_server_bin_exec_jdt/
     exec: language_server_bin_exec_jdt/launcher.sh
     STDIN_PORT: 8991
