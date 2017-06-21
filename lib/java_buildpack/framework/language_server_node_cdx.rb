@@ -48,7 +48,7 @@ module JavaBuildpack
         download_tar( target_directory=nodedir )
         @version = comp_version
         @uri = comp_uri
-        download_zip strip_top_level = true
+        download_zip strip_top_level = false
 
         nodeBin = "#{@application.root}/node/bin/*"
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
