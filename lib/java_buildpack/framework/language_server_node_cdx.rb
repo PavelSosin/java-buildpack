@@ -49,6 +49,7 @@ module JavaBuildpack
         @version = comp_version
         @uri = comp_uri
         download_zip strip_top_level = false
+        @droplet.copy_resources
 
         nodeBin = "#{@application.root}/node/bin/*"
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
