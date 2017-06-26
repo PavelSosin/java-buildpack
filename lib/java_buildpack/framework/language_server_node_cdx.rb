@@ -50,11 +50,11 @@ module JavaBuildpack
         @uri = comp_uri
         download_zip strip_top_level = false
         @droplet.copy_resources
+        FileUtils.chmod "a=rx", nodeBin
 
         nodeBin = "#{@application.root}/node/bin/*"
         @logger.debug { "NodeRoot: #{@application.root}   NodeBin: #{nodeBin}"}
 
-        #FileUtils.chmod "a=rx", nodeBin
         #FileUtils.ln_s "/home/vcap/app/.java-buildpack/language_server_node_cdx/nodejs/bin/npm", "/usr/bin/npm", force: true
       end
 
@@ -74,7 +74,7 @@ module JavaBuildpack
           environment_variables.add_environment_variable("CDX_" + key, value)
         end
 
-        environment_variables.add_environment_variable 'PATH', "/home/vcap/app/.java-bildpack/#{@droplet.component_id}/nodejs/bin:$PATH"
+        environment_variables.add_environment_variable 'PATH', "/home/vcap/app/.java-buildpack/#{@droplet.component_id}/nodejs/bin:$PATH"
       end
 
       protected
