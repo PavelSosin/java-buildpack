@@ -53,21 +53,21 @@ module JavaBuildpack
       def release
 
         environment_variables = @droplet.environment_variables
-        myBasedir = @configuration["env"]["basedir"]
-        environment_variables.add_environment_variable("JAVA_" + "basedir", myBasedir)        
+#        myBasedir = @configuration["env"]["basedir"]
+#        environment_variables.add_environment_variable(ENV_PREFIX + "basedir", myBasedir)
         myWorkdir = @configuration["env"]["workdir"]
-        environment_variables.add_environment_variable("JAVA_" + "workdir", myWorkdir)
+        environment_variables.add_environment_variable(ENV_PREFIX + "workdir", myWorkdir)
         myExec = @configuration["env"]["exec"]
-        environment_variables.add_environment_variable("JAVA_" + "exec", myExec)
+        environment_variables.add_environment_variable(ENV_PREFIX + "exec", myExec)
         portIn = @configuration["env"]["STDIN_PORT"]
-        environment_variables.add_environment_variable("JAVA_STDIN_PORT", portIn)
+        environment_variables.add_environment_variable(ENV_PREFIX + "STDIN_PORT", portIn)
         portOut = @configuration["env"]["STDOUT_PORT"]
-        environment_variables.add_environment_variable("JAVA_STDOUT_PORT", portOut)
+        environment_variables.add_environment_variable(ENV_PREFIX + "STDOUT_PORT", portOut)
         
         myIpc = @configuration["env"]["ipc"]
         @logger.debug { "JDT Env vars IPC:#{myIpc}" }
         myIpc.each do |key, value|
-          environment_variables.add_environment_variable("JAVA_" + key, value)
+          environment_variables.add_environment_variable(ENV_PREFIX + key, value)
         end
         
       end
@@ -88,6 +88,10 @@ module JavaBuildpack
       IPC = 'jdt-ipc'.freeze
 
       private_constant :IPC
+
+      ENV_PREFIX = 'LSPJAVA_'.freeze
+
+      private_constant :ENV_PREFIX
 
       
 

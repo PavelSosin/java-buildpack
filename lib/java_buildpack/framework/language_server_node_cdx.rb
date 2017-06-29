@@ -64,14 +64,14 @@ module JavaBuildpack
         @logger.debug { "Release CDX" }
         environment_variables = @droplet.environment_variables
         myWorkdir = @configuration["env"]["workdir"]
-        environment_variables.add_environment_variable("CDX_" + "workdir", myWorkdir)
+        environment_variables.add_environment_variable(ENV_PREFIX + "workdir", myWorkdir)
         myExec = @configuration["env"]["exec"]
-        environment_variables.add_environment_variable("CDX_" + "exec", myExec)
+        environment_variables.add_environment_variable(ENV_PREFIX + "exec", myExec)
         
         myIpc = @configuration["env"]["ipc"]
         @logger.debug { "CDX Env vars IPC:#{myIpc}" }
         myIpc.each do |key, value|
-          environment_variables.add_environment_variable("CDX_" + key, value)
+          environment_variables.add_environment_variable(ENV_PREFIX + key, value)
         end
 
         environment_variables.add_environment_variable 'PATH', "/home/vcap/app/.java-buildpack/#{@droplet.component_id}/nodejs/bin:$PATH"
@@ -94,7 +94,10 @@ module JavaBuildpack
 
       private_constant :BINEXEC
 
-      
+      ENV_PREFIX = 'LSPCDX_'.freeze
+
+      private_constant :ENV_PREFIX
+
     end
 
   end
