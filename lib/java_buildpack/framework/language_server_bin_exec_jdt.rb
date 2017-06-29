@@ -55,6 +55,7 @@ module JavaBuildpack
         environment_variables = @droplet.environment_variables
 #        myBasedir = @configuration["env"]["basedir"]
 #        environment_variables.add_environment_variable(ENV_PREFIX + "basedir", myBasedir)
+
         myWorkdir = @configuration["env"]["workdir"]
         environment_variables.add_environment_variable(ENV_PREFIX + "workdir", myWorkdir)
         myExec = @configuration["env"]["exec"]
