@@ -34,6 +34,11 @@ module JavaBuildpack
         FileUtils.mkdir_p @droplet.root + 'jdt_ws_root'
         ipcval = @configuration["env"]["IPC"]
         @logger.debug { "IPC VAL:#{ipcval}"}
+        
+        instMaven = "apt install maven"
+        instLog = `#{instMaven}`
+        @logger.debug { "Maven install: #{instLog}"}
+        
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
